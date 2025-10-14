@@ -1,6 +1,9 @@
 import { Users, Briefcase, Store, TrendingUp, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import PageTransition from "@/components/PageTransition";
+import AnimatedCard from "@/components/AnimatedCard";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const Join = () => {
   const opportunities = [

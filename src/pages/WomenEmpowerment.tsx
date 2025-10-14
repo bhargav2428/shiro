@@ -1,20 +1,26 @@
 import { Users, Briefcase, TrendingUp, Award, Heart, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import womenImage from "@/assets/women-empowerment.jpg";
+import PageTransition from "@/components/PageTransition";
+import AnimatedCard from "@/components/AnimatedCard";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const WomenEmpowerment = () => {
   return (
-    <div className="min-h-screen pt-16 md:pt-20">
-      {/* Hero Section */}
-      <section className="section-padding gradient-ocean text-white">
-        <div className="container-custom text-center">
-          <h1 className="mb-6 text-white">Women Empowerment</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90">
-            Women-Led Seafood Retail in Andhra Pradesh, Odisha & West Bengal
-          </p>
-        </div>
-      </section>
+    <PageTransition>
+      <div className="min-h-screen pt-16 md:pt-20">
+        {/* Hero Section */}
+        <section className="section-padding gradient-ocean text-white relative overflow-hidden">
+          <FloatingParticles />
+          <div className="container-custom text-center relative z-10">
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="mb-6 text-white">Women Empowerment</motion.h1>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90">
+              Women-Led Seafood Retail in Andhra Pradesh, Odisha & West Bengal
+            </motion.p>
+          </div>
+        </section>
 
       {/* Vision Section */}
       <section className="section-padding">
@@ -205,9 +211,10 @@ const WomenEmpowerment = () => {
               </Button>
             </Link>
           </div>
-        </div>
-      </section>
-    </div>
+          </div>
+        </section>
+      </div>
+    </PageTransition>
   );
 };
 

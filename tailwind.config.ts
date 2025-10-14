@@ -66,6 +66,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backdropBlur: {
+        xs: '2px',
+      },
       keyframes: {
         "accordion-down": {
           from: {
@@ -124,6 +127,26 @@ export default {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-20px)" },
         },
+        "slide-up": {
+          "0%": { opacity: "0", transform: "translateY(100px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" }
+        },
+        "slide-down": {
+          "0%": { opacity: "0", transform: "translateY(-100px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" }
+        },
+        "zoom-in": {
+          "0%": { opacity: "0", transform: "scale(0.5)" },
+          "100%": { opacity: "1", transform: "scale(1)" }
+        },
+        "rotate-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" }
+        },
+        "glow": {
+          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--primary) / 0.5)" },
+          "50%": { boxShadow: "0 0 40px hsl(var(--primary) / 0.8)" }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -138,6 +161,11 @@ export default {
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "shimmer": "shimmer 2s infinite",
         "float": "float 3s ease-in-out infinite",
+        "slide-up": "slide-up 0.6s ease-out",
+        "slide-down": "slide-down 0.6s ease-out",
+        "zoom-in": "zoom-in 0.5s ease-out",
+        "rotate-slow": "rotate-slow 20s linear infinite",
+        "glow": "glow 2s ease-in-out infinite",
       },
     },
   },

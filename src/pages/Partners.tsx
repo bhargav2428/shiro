@@ -1,6 +1,10 @@
 import { Building2, Handshake, Globe, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import PageTransition from "@/components/PageTransition";
+import AnimatedCard from "@/components/AnimatedCard";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const Partners = () => {
   const partnerCategories = [
@@ -55,7 +59,8 @@ const Partners = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16 md:pt-20">
+    <PageTransition>
+      <div className="min-h-screen pt-16 md:pt-20">
       {/* Hero Section */}
       <section className="section-padding gradient-ocean text-white">
         <div className="container-custom text-center">
@@ -206,9 +211,10 @@ const Partners = () => {
               </Button>
             </Link>
           </div>
-        </div>
-      </section>
-    </div>
+          </div>
+        </section>
+      </div>
+    </PageTransition>
   );
 };
 
