@@ -108,6 +108,7 @@ const Home = () => {
             {/* Base Image Layer */}
             <motion.div
               initial={{ scale: 1.3, opacity: 0 }}
+              initial={{ scale: 1.3, opacity: 0 }}
               animate={{ scale: 1.1, opacity: 1 }}
               transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
               className="w-full h-full bg-cover bg-center bg-no-repeat"
