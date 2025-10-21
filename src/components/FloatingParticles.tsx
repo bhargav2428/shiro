@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const FloatingParticles = () => {
-  const particles = Array.from({ length: 20 });
+  const particles = Array.from({ length: 24 });
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -10,8 +10,8 @@ const FloatingParticles = () => {
           key={i}
           className="absolute w-2 h-2 bg-white/20 rounded-full"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
           }}
           animate={{
             y: [null, Math.random() * -200, Math.random() * 200],

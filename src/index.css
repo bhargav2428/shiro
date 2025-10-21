@@ -163,6 +163,66 @@ All colors MUST be HSL.
 }
 
 @layer components {
+  /* Ocean Waves Background Utilities */
+  .ocean-waves {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .ocean-waves::before,
+  .ocean-waves::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 160px;
+    background: radial-gradient(50% 80% at 50% 100%, hsl(var(--primary) / 0.25) 0%, transparent 70%),
+                radial-gradient(50% 80% at 0% 80%, hsl(var(--secondary) / 0.2) 0%, transparent 70%),
+                radial-gradient(60% 100% at 100% 80%, hsl(var(--accent) / 0.15) 0%, transparent 70%);
+    filter: blur(8px);
+    transform: translateX(-25%);
+    z-index: -1;
+  }
+
+  .ocean-waves::before {
+    bottom: -40px;
+    animation: waves-slide 16s linear infinite;
+  }
+
+  .ocean-waves::after {
+    bottom: -80px;
+    opacity: 0.7;
+    animation: waves-slide 22s linear infinite reverse;
+  }
+
+  @keyframes waves-slide {
+    0% { transform: translateX(-25%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Subtle water caustics overlay */
+  .water-caustics {
+    position: relative;
+  }
+  .water-caustics::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-radial-gradient(
+      circle at 20% 30%,
+      hsl(0 0% 100% / 0.04) 0 6px,
+      transparent 6px 12px
+    );
+    mix-blend-mode: overlay;
+    animation: caustics 12s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes caustics {
+    0% { transform: translateY(0) scale(1); opacity: 0.5; }
+    50% { transform: translateY(-10px) scale(1.02); opacity: 0.8; }
+    100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  }
   .btn-hero {
     @apply bg-accent text-accent-foreground hover:opacity-90 px-8 py-6 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 hover:scale-105;
   }
@@ -289,7 +349,7 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
   }
   
-  /* Loading animations */
+  /* Enhanced animations */
   @keyframes shimmer {
     0% { background-position: -1000px 0; }
     100% { background-position: 1000px 0; }
@@ -328,5 +388,194 @@ All colors MUST be HSL.
   
   .card-3d:hover {
     transform: rotateY(5deg) rotateX(5deg);
+  }
+  
+  /* Magnetic button effect */
+  .magnetic-button {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  /* Enhanced glassmorphism */
+  .glass-card-enhanced {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .glass-card-enhanced:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+    transform: translateY(-2px);
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Enhanced focus states */
+  .focus-enhanced:focus {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.1);
+  }
+  
+  /* Loading states */
+  .loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+  
+  @keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  /* Micro-interactions */
+  .micro-interaction {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .micro-interaction:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .micro-interaction:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Enhanced button animations */
+  .btn-enhanced {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .btn-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-enhanced:hover::before {
+    left: 100%;
+  }
+  
+  .btn-enhanced:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-enhanced:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Staggered animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  
+  /* Enhanced text animations */
+  .text-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textReveal 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+  
+  @keyframes textReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Enhanced card hover effects */
+  .card-enhanced {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+  }
+  
+  .card-enhanced:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Enhanced form animations */
+  .form-field-enhanced {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .form-field-enhanced:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.1);
+  }
+  
+  /* Enhanced navigation animations */
+  .nav-enhanced {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .nav-enhanced:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Enhanced icon animations */
+  .icon-enhanced {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .icon-enhanced:hover {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  /* Enhanced gradient animations */
+  .gradient-animated {
+    background: linear-gradient(-45deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)), hsl(var(--primary)));
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Enhanced particle effects */
+  .particle-enhanced {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .particle-enhanced::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: particleFloat 20s linear infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes particleFloat {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(360deg); }
   }
 }

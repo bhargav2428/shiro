@@ -1,7 +1,12 @@
+// src/components/Navigation.tsx
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+// Import Logo Image
+import logoImage from "@/assets/1-removebg-preview.png"; // 40x40px PNG
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,19 +43,27 @@ const Navigation = () => {
         <div className={`flex items-center justify-between transition-all duration-300 ${
           isScrolled ? "h-14 md:h-16" : "h-16 md:h-20"
         }`}>
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="flex items-center">
-              <span className={`font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent transition-all duration-300 group-hover:scale-105 ${
-                isScrolled ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"
-              }`}>
-                Shrimpact
-              </span>
-            </div>
+          
+          {/* LOGO ONLY - NO BORDER REMOVED */}
+          <Link to="/" className="group transition-all duration-300 flex items-center">
+            <motion.img
+              src={logoImage}
+              alt="Shrimpact Logo"
+              className={`
+                object-contain transition-all duration-300 group-hover:scale-110
+                ${isScrolled 
+                  ? "w-8 h-8 md:w-9 md:h-9" 
+                  : "w-10 h-10 md:w-12 md:h-12"
+                }
+              `}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-4 ml-auto">
             {links.map((link) => (
               <Link
                 key={link.path}
@@ -82,27 +95,38 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className={`lg:hidden bg-background border-t border-border overflow-hidden transition-all duration-300 ${
-        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-      }`}>
+      <motion.div 
+        className={`lg:hidden bg-background border-t border-border overflow-hidden`}
+        initial={false}
+        animate={{ 
+          height: isOpen ? "auto" : 0,
+          opacity: isOpen ? 1 : 0 
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
         <div className="container-custom py-4 space-y-2">
           {links.map((link, index) => (
-            <Link
+            <motion.div
               key={link.path}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              className={`block px-4 py-3 rounded-md text-base font-medium transition-all animate-fade-in ${
-                isActive(link.path)
-                  ? "bg-primary text-primary-foreground"
-                  : "text-foreground hover:bg-muted"
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
             >
-              {link.name}
-            </Link>
+              <Link
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={`block px-4 py-3 rounded-md text-base font-medium transition-all ${
+                  isActive(link.path)
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground hover:bg-muted"
+                }`}
+              >
+                {link.name}
+              </Link>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </nav>
   );
 };
