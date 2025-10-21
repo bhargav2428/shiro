@@ -10,6 +10,7 @@ import ParallaxSection from "@/components/ParallaxSection";
 import AnimatedCard from "@/components/AnimatedCard";
 import FloatingParticles from "@/components/FloatingParticles";
 import GlassCard from "@/components/GlassCard";
+import AnimatedShrimpCursor from "@/components/AnimatedShrimpCursor";
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -59,23 +60,42 @@ const Home = () => {
   return (
     <PageTransition>
       <div className="min-h-screen overflow-hidden">
+        <AnimatedShrimpCursor />
         {/* Hero Section with Parallax */}
         <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-          {/* Parallax Background */}
+          {/* Parallax Background with Enhanced Effects */}
           <motion.div 
             style={{ y: heroY }}
             className="absolute inset-0 scale-110"
           >
             <motion.div
-              initial={{ scale: 1.2, opacity: 0 }}
+              initial={{ scale: 1.3, opacity: 0 }}
               animate={{ scale: 1.1, opacity: 1 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
+              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
               className="w-full h-full bg-cover bg-center"
               style={{ backgroundImage: `url(${heroImage})` }}
             />
             <motion.div 
               className="absolute inset-0 gradient-hero"
               style={{ opacity: heroOpacity }}
+            />
+            
+            {/* Animated Ocean Waves Overlay */}
+            <motion.div 
+              className="absolute inset-0 opacity-30"
+              animate={{
+                backgroundPosition: ["0% 0%", "100% 100%"],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "linear"
+              }}
+              style={{
+                backgroundImage: "radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.3) 0%, transparent 50%)",
+                backgroundSize: "200% 200%",
+              }}
             />
           </motion.div>
 
@@ -89,22 +109,50 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                initial={{ scale: 0.8, opacity: 0, y: -20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.4,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                whileHover={{ scale: 1.05 }}
                 className="inline-block px-6 py-2 mb-6 rounded-full glass-card"
               >
-                <span className="text-white font-semibold flex items-center gap-2">
+                <motion.span 
+                  className="text-white font-semibold flex items-center gap-2"
+                  animate={{
+                    textShadow: [
+                      "0 0 10px rgba(255,255,255,0.5)",
+                      "0 0 20px rgba(255,255,255,0.8)",
+                      "0 0 10px rgba(255,255,255,0.5)",
+                    ]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
                   <Sparkles className="w-4 h-4 animate-pulse-glow" />
                   Impact not Profit
-                </span>
+                </motion.span>
               </motion.div>
               
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="mb-6 text-white"
+                transition={{ 
+                  duration: 1, 
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 50
+                }}
+                className="mb-6 text-white drop-shadow-2xl"
+                style={{
+                  textShadow: "0 4px 20px rgba(0,0,0,0.5)"
+                }}
               >
                 Access India's Trusted Source for Best Quality, Safe, Traceable, Sustainable Shrimp
               </motion.h1>
@@ -112,10 +160,21 @@ const Home = () => {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
+                transition={{ duration: 1, delay: 0.8 }}
                 className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto"
               >
-                100% Antibiotic-Free | 95% Pathogen Reduction | Pond-to-Plate Traceability
+                {["100% Antibiotic-Free", "95% Pathogen Reduction", "Pond-to-Plate Traceability"].map((text, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1 + i * 0.2 }}
+                    className="inline-block mx-2"
+                  >
+                    {text}
+                    {i < 2 && " | "}
+                  </motion.span>
+                ))}
               </motion.p>
               
               <motion.div
@@ -125,17 +184,42 @@ const Home = () => {
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
                 <Link to="/contact">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button size="lg" className="btn-hero shine-effect group">
-                      Request Samples 
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <motion.div 
+                    whileHover={{ scale: 1.08, y: -5 }} 
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    <Button size="lg" className="btn-hero shine-effect group relative overflow-hidden">
+                      <motion.span
+                        className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0"
+                        animate={{
+                          x: ["-200%", "200%"],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
+                      />
+                      <span className="relative z-10">Request Samples</span>
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform relative z-10" />
                     </Button>
                   </motion.div>
                 </Link>
                 <Link to="/seafood">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button size="lg" variant="outline" className="glass-card text-white border-white/30 hover:bg-white/20">
-                      Learn More
+                  <motion.div 
+                    whileHover={{ scale: 1.08, y: -5 }} 
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    <Button size="lg" variant="outline" className="glass-card text-white border-white/30 hover:bg-white/20 relative overflow-hidden group">
+                      <motion.span
+                        className="absolute inset-0 bg-white/10"
+                        initial={{ scale: 0, opacity: 0 }}
+                        whileHover={{ scale: 1.5, opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                      />
+                      <span className="relative z-10">Learn More</span>
                     </Button>
                   </motion.div>
                 </Link>
@@ -167,16 +251,27 @@ const Home = () => {
 
               <div className="grid md:grid-cols-3 gap-8">
                 {features.map((feature, index) => (
-                  <AnimatedCard key={index} delay={index * 0.2} hover3d className="p-8 rounded-xl card-gradient group">
+                  <AnimatedCard key={index} delay={index * 0.2} hover3d className="p-8 rounded-xl card-gradient group relative overflow-hidden">
                     <motion.div
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                      className={`w-16 h-16 mb-6 rounded-2xl bg-${feature.color}/10 flex items-center justify-center`}
+                      className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    />
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.8, type: "spring" }}
+                      className={`w-16 h-16 mb-6 rounded-2xl bg-${feature.color}/10 flex items-center justify-center relative z-10`}
                     >
-                      <feature.icon className={`h-8 w-8 text-${feature.color}`} />
+                      <feature.icon className={`h-8 w-8 text-${feature.color} drop-shadow-lg`} />
                     </motion.div>
-                    <h3 className="text-xl mb-4">{feature.title}</h3>
-                    <p className="text-muted-foreground">{feature.description}</p>
+                    <h3 className="text-xl mb-4 relative z-10">{feature.title}</h3>
+                    <p className="text-muted-foreground relative z-10">{feature.description}</p>
+                    
+                    {/* Animated corner accent */}
+                    <motion.div
+                      className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/20 to-transparent rounded-bl-full"
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: index * 0.2 + 0.5 }}
+                    />
                   </AnimatedCard>
                 ))}
               </div>
@@ -206,17 +301,39 @@ const Home = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {partnerBenefits.map((benefit, index) => (
-                <GlassCard key={index} delay={index * 0.15} className="p-8 text-center">
+                <GlassCard key={index} delay={index * 0.15} className="p-8 text-center group">
                   <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center"
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: index * 0.15 + 0.3,
+                      type: "spring",
+                      stiffness: 200
+                    }}
+                    whileHover={{ 
+                      scale: 1.15, 
+                      rotate: 5,
+                      transition: { duration: 0.3 }
+                    }}
+                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center relative"
                   >
-                    <benefit.icon className="h-10 w-10 text-primary" />
+                    <motion.div
+                      className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 to-secondary/40"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0.8, 0.5],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    <benefit.icon className="h-10 w-10 text-primary relative z-10" />
                   </motion.div>
-                  <h3 className="text-xl mb-4">{benefit.title}</h3>
+                  <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">{benefit.title}</h3>
                   <p className="text-muted-foreground">{benefit.description}</p>
                 </GlassCard>
               ))}
@@ -250,15 +367,28 @@ const Home = () => {
                   className="flex flex-col sm:flex-row gap-4 justify-center"
                 >
                   <Link to="/join">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button size="lg" className="btn-hero">
-                        Explore Opportunities
-                        <ArrowRight className="ml-2 h-5 w-5" />
+                    <motion.div 
+                      whileHover={{ scale: 1.08, y: -5 }} 
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      <Button size="lg" className="btn-hero relative overflow-hidden group">
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                          animate={{ x: ["-200%", "200%"] }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        />
+                        <span className="relative z-10">Explore Opportunities</span>
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform relative z-10" />
                       </Button>
                     </motion.div>
                   </Link>
                   <Link to="/contact">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <motion.div 
+                      whileHover={{ scale: 1.08, y: -5 }} 
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
                       <Button size="lg" variant="outline" className="glass-card text-white border-white/30 hover:bg-white/20">
                         Contact Us
                       </Button>

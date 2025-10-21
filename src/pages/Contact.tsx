@@ -282,17 +282,17 @@ const Contact = () => {
                     </motion.div>
 
                     <motion.div variants={itemVariants}>
-                      <Button
-                        type="submit"
-                        size="lg"
-                        className="w-full bg-blue-600 text-white hover:bg-blue-700"
-                        disabled={isSubmitting}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        {isSubmitting ? "Sending..." : "Send Message"}
-                        <Send className="ml-2 h-5 w-5" />
-                      </Button>
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <Button
+                          type="submit"
+                          size="lg"
+                          className="w-full bg-blue-600 text-white hover:bg-blue-700"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? "Sending..." : "Send Message"}
+                          <Send className="ml-2 h-5 w-5" />
+                        </Button>
+                      </motion.div>
                     </motion.div>
                   </form>
                 </div>
@@ -344,14 +344,14 @@ const Contact = () => {
                 >
                   <h3 className="font-semibold mb-2 text-lg">{action.title}</h3>
                   <p className="text-sm text-gray-600 mb-4">{action.desc}</p>
-                  <Button
-                    variant="outline"
-                    className="w-full border-gray-300 hover:bg-gray-100"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {action.cta}
-                  </Button>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button
+                      variant="outline"
+                      className="w-full border-gray-300 hover:bg-gray-100"
+                    >
+                      {action.cta}
+                    </Button>
+                  </motion.div>
                 </motion.div>
               ))}
             </motion.div>
