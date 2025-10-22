@@ -52,8 +52,8 @@ const Navigation = () => {
               className={`
                 object-contain transition-all duration-300 group-hover:scale-110
                 ${isScrolled 
-                  ? "w-8 h-8 md:w-9 md:h-9" 
-                  : "w-10 h-10 md:w-12 md:h-12"
+                  ? "w-20 h-20 md:w-40 md:h-40" 
+                  : "w-20 h-20 md:w-40 md:h-40"
                 }
               `}
               whileHover={{ scale: 1.1 }}

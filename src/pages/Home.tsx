@@ -211,7 +211,7 @@ const Home = () => {
                 }}
                 className="bg-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl p-6 md:p-12 border border-white/10 shadow-2xl shadow-blue-500/10 mb-6 md:mb-8"
               >
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-8 leading-tight">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-8 leading-tight">
                   <span className="text-white drop-shadow-2xl">Access India's</span>
                   <br />
                   <span className="bg-gradient-to-r from-blue-200 via-cyan-200 to-teal-200 bg-clip-text text-transparent drop-shadow-2xl">
@@ -362,7 +362,7 @@ const Home = () => {
             >
               {/* Glass Title Container */}
               <div className="bg-white/60 backdrop-blur-lg rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/40 shadow-xl shadow-blue-500/5 mb-6 md:mb-8">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-800 via-cyan-700 to-teal-800 bg-clip-text text-transparent">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium mb-4 md:mb-6 bg-gradient-to-r from-blue-800 via-cyan-700 to-teal-800 bg-clip-text text-transparent">
                   About Shrimpact
                 </h2>
                 <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed font-normal">
@@ -438,7 +438,7 @@ const Home = () => {
             >
               {/* Glass Title Container */}
               <div className="bg-white/10 backdrop-blur-xl rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/20 shadow-2xl shadow-blue-500/20">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium mb-4 md:mb-6 text-white">
                   Why Partner with Shrimpact?
                 </h2>
                 <p className="text-lg md:text-xl text-white/80 leading-relaxed font-normal">
@@ -549,7 +549,7 @@ const Home = () => {
               >
                 {/* Ultimate Glass Container */}
                 <div className="bg-white/15 backdrop-blur-2xl rounded-2xl md:rounded-3xl p-8 md:p-16 border border-white/30 shadow-3xl shadow-blue-500/30 mb-8 md:mb-12">
-                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 text-white">
+                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 md:mb-8 text-white">
                     Ready to Partner with Us?
                   </h2>
                   <p className="text-lg md:text-2xl mb-8 md:mb-12 text-white/90 leading-relaxed font-normal">
@@ -614,7 +614,7 @@ const Home = () => {
                       key={index}
                       className="bg-white/10 backdrop-blur-lg rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 cursor-pointer"
                     >
-                      <div className="text-2xl md:text-3xl font-bold text-white mb-1 md:mb-2">{stat.number}</div>
+                      <div className="text-2xl md:text-3xl font-medium text-white mb-1 md:mb-2">{stat.number}</div>
                       <div className="text-white/70 text-xs md:text-sm font-medium">{stat.label}</div>
                     </motion.div>
                   ))}
