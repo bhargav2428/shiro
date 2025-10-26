@@ -558,7 +558,7 @@ const Home = () => {
               >
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 bg-gradient-to-r from-slate-800 via-blue-800 to-cyan-800 bg-clip-text text-transparent">
                   Trusted by
-                  <span className="font-medium"> Industry Leaders</span>
+                  <span className="font-medium"> Sustainability Leaders</span>
                 </h2>
                 <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto">
                   Collaborating with forward-thinking organizations dedicated to sustainable shrimp farming
