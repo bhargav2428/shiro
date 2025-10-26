@@ -8,7 +8,7 @@ import {
 import PageTransition from "@/components/PageTransition";
 import FloatingParticles from "@/components/FloatingParticles";
 import AnimatedCard from "@/components/AnimatedCard";
-import aboutImage from "@/assets/about.jpg";
+import aboutImage from "@/assets/about1.jpg";
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,29 +54,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
             >
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0, y: -20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 1, 
-                  delay: 0.4,
-                  type: "spring",
-                  stiffness: 120,
-                  damping: 15
-                }}
-                className="inline-flex items-center gap-3 px-6 py-3 mb-8 rounded-full bg-white/60 backdrop-blur-lg border border-white/40 shadow-lg hover:shadow-xl transition-all duration-500 group cursor-pointer"
-              >
-                <motion.div
-                  animate={{ rotate: [0, 10, -5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative"
-                >
-                  <Sparkles className="w-5 h-5 text-blue-600 drop-shadow-lg" />
-                </motion.div>
-                <span className="font-semibold text-gray-700 text-sm tracking-wider group-hover:tracking-widest transition-all duration-500">
-                  ABOUT SHRIMPACT
-                </span>
-              </motion.div>
+              
               
               <motion.div
                 initial={{ opacity: 0, y: 30 }}

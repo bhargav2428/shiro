@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Phone, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Footer = () => {
@@ -28,8 +28,8 @@ const Footer = () => {
         }}></div>
       </div>
       
-      <div className="container-custom py-12 md:py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Brand */}
           <div className="animate-fade-in">
             <h3 className="text-2xl font-bold mb-4 hover:scale-105 transition-transform inline-block">
@@ -51,60 +51,18 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/seafood" className="text-primary-foreground/80 hover:text-primary-foreground transition-all hover:translate-x-1 inline-block">
-                  Safe & Sustainable Seafood
+                  About 
                 </Link>
               </li>
               <li>
                 <Link to="/women-empowerment" className="text-primary-foreground/80 hover:text-primary-foreground transition-all hover:translate-x-1 inline-block">
-                  Women Empowerment
+                  Our Tech
                 </Link>
               </li>
               <li>
                 <Link to="/partners" className="text-primary-foreground/80 hover:text-primary-foreground transition-all hover:translate-x-1 inline-block">
-                  Partners
+                  Products
                 </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Products */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <h4 className="text-lg font-semibold mb-4">Our Products</h4>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li className="hover:text-primary-foreground transition-colors">Litopenaeus vannamei (Shrimp)</li>
-              <li className="hover:text-primary-foreground transition-colors">Lates Calcarifer (Seabass)</li>
-              <li className="hover:text-primary-foreground transition-colors">100% Antibiotic-Free</li>
-              <li className="hover:text-primary-foreground transition-colors">Fully Traceable</li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2 group">
-                <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="text-primary-foreground/80 group-hover:text-primary-foreground transition-colors">
-                  Andhra Pradesh, India
-                </span>
-              </li>
-              <li className="flex items-start gap-2 group">
-                <Mail className="h-5 w-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <a 
-                  href="mailto:info@shrimpact.com" 
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  info@shrimpact.com
-                </a>
-              </li>
-              <li className="flex items-start gap-2 group">
-                <Phone className="h-5 w-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <a 
-                  href="tel:+911234567890" 
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  +91 123 456 7890
-                </a>
               </li>
             </ul>
           </div>

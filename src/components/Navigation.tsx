@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Import Logo Image
-import logoImage from "@/assets/1-removebg-preview.png"; // 40x40px PNG
+import logoImage from "@/assets/logo.jpg"; // 40x40px PNG
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,22 +39,26 @@ const Navigation = () => {
         : "bg-background/95 backdrop-blur-sm shadow-sm"
     }`}>
       <div className="container-custom">
-        {/* Logo Section - Centered */}
+        {/* Logo Section - Full Width */}
         <div className={`flex items-center justify-center transition-all duration-300 ${
           isScrolled ? "py-1" : "py-2"
         }`}>
-          <Link to="/" className="group transition-all duration-300 flex items-center">
+          <Link to="/" className="group transition-all duration-300 flex items-center w-100 justify-center">
             <motion.img
               src={logoImage}
               alt="Shrimpact Logo"
               className={`
-                object-contain transition-all duration-300 group-hover:scale-110
+                object-contain transition-all duration-300 group-hover:scale-105
                 ${isScrolled 
-                  ? "w-20 h-16 md:w-28 md:h-20" 
-                  : "w-24 h-20 md:w-32 md:h-24"
+                  ? "w-full h-16" 
+                  : "w-full h-20"
                 }
               `}
-              whileHover={{ scale: 1.1 }}
+              style={{
+                backgroundColor: 'transparent', // Remove background
+                mixBlendMode: 'multiply' // Better blending with background
+              }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />

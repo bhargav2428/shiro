@@ -269,7 +269,7 @@ const Contact = () => {
                             href="tel:+911234567890" 
                             className="text-gray-600 hover:text-green-500 transition-colors duration-200 text-lg"
                           >
-                            +91 123 456 7890
+                            +91 903 5843 520
                           </a>
                         ),
                         description: "Mon-Fri from 9am to 6pm",
@@ -279,7 +279,7 @@ const Contact = () => {
                       {
                         icon: <MapPin className="h-8 w-8 text-purple-600" />,
                         title: "Our Location",
-                        content: <p className="text-gray-600 text-lg">Andhra Pradesh, India</p>,
+                        content: <p className="text-gray-600 text-lg">Kakinada, Andhra Pradesh, India</p>,
                         description: "Headquarters & Operations",
                         gradient: "from-purple-500 to-pink-500",
                         bg: "bg-purple-50"
@@ -386,7 +386,7 @@ const Contact = () => {
                         <Label htmlFor="name" className="text-gray-700 font-semibold">Full Name *</Label>
                         <Input
                           id="name"
-                          placeholder="John Doe"
+                         
                           value={formData.name}
                           onChange={(e) => handleChange("name", e.target.value)}
                           onFocus={() => setFocusedField("name")}
@@ -418,7 +418,7 @@ const Contact = () => {
                         <Input
                           id="email"
                           type="email"
-                          placeholder="john@example.com"
+                          
                           value={formData.email}
                           onChange={(e) => handleChange("email", e.target.value)}
                           required
@@ -451,7 +451,6 @@ const Contact = () => {
                         <Input
                           id="phone"
                           type="tel"
-                          placeholder="+91 98765 43210"
                           value={formData.phone}
                           onChange={(e) => handleChange("phone", e.target.value)}
                           className="border-gray-300 focus:border-blue-500 focus:ring-blue-500 transition-all duration-200 text-lg py-6"
@@ -467,7 +466,6 @@ const Contact = () => {
                         <Label htmlFor="organization" className="text-gray-700 font-semibold">Organization</Label>
                         <Input
                           id="organization"
-                          placeholder="Your company name"
                           value={formData.organization}
                           onChange={(e) => handleChange("organization", e.target.value)}
                           className="border-gray-300 focus:border-blue-500 focus:ring-blue-500 transition-all duration-200 text-lg py-6"

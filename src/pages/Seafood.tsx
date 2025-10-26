@@ -6,15 +6,30 @@ import { useState, useRef, useEffect } from "react";
 import PageTransition from "@/components/PageTransition";
 import FloatingParticles from "@/components/FloatingParticles";
 
-// Web images for seafood and quality themes
-const WEB_IMAGES = {
-  hero: "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  quality: "https://images.unsplash.com/photo-1507991426709-5bbee2c6a189?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  sustainability: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  technology: "https://images.unsplash.com/photo-1723134085909-19da487ac9bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  shrimp: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  seabass: "https://images.unsplash.com/photo-1576330383200-2bf325cfec52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+// Import images from assets
+import awqurim from "@/assets/Awuarium.jpg";
+import podplate from "@/assets/podplate.jpg";
+import coldchain from "@/assets/coldchain.jpg";
+import ropar from "@/assets/ropar.jpg";
+import  promise from "@/assets/promise.jpg";
+import recognation from "@/assets/recogniation.jpg";
+import pondhealt from "@/assets/3.jpg";
+import seabase from "@/assets/4.jpg";
+
+import shrmp from "@/assets/2.jpg";
+
+const IMAGES = {
+  awqurim: awqurim,
+  podplate: podplate,
+  coldchain: coldchain,
+  ropar: ropar,
+  promise: promise,
+  recognation: recognation,
+  pondhealth: pondhealt,
+  shrmp : shrmp,
+  seabase : seabase
 };
+
 const Seafood = () => {
   const { scrollYProgress } = useScroll();
   const parallaxY = useTransform(scrollYProgress, [0, 1], [0, 200]);
@@ -23,12 +38,6 @@ const Seafood = () => {
   
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState(0);
-  
-  // Magnetic effect for buttons
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 200, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 200, damping: 20 });
 
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
@@ -119,7 +128,8 @@ const Seafood = () => {
       ],
       gradient: "from-blue-500 to-cyan-500",
       bg: "bg-blue-50",
-      stats: "95% Success Rate"
+      stats: "95% Success Rate",
+      image: IMAGES.recognation
     },
     {
       icon: ShieldCheck,
@@ -133,7 +143,8 @@ const Seafood = () => {
       ],
       gradient: "from-green-500 to-emerald-500",
       bg: "bg-green-50",
-      stats: "100% Clean"
+      stats: "100% Clean",
+      image: IMAGES.pondhealth
     },
     {
       icon: QrCode,
@@ -147,7 +158,8 @@ const Seafood = () => {
       ],
       gradient: "from-purple-500 to-pink-500",
       bg: "bg-purple-50",
-      stats: "Full Traceability"
+      stats: "Full Traceability",
+      image: IMAGES.podplate
     },
     {
       icon: Thermometer,
@@ -161,7 +173,8 @@ const Seafood = () => {
       ],
       gradient: "from-orange-500 to-red-500",
       bg: "bg-orange-50",
-      stats: "24/7 Monitoring"
+      stats: "24/7 Monitoring",
+      image: IMAGES.coldchain
     }
   ];
 
@@ -176,7 +189,7 @@ const Seafood = () => {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0">
             <img 
-              src={WEB_IMAGES.hero}
+              src={IMAGES.shrmp}  
               alt="Premium quality seafood and shrimp"
               className="w-full h-full object-cover"
             />
@@ -228,36 +241,16 @@ const Seafood = () => {
             >
               {/* Main Title with Staggered Animation */}
               <div className="mb-8">
-                <motion.h1
-                  variants={itemVariants}
-                  className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-white leading-tight"
-                >
-                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 leading-tight">
-                    Safe & Sustainable
+               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 leading-tight">
+                  <span className="text-white drop-shadow-2xl font-normal">Access India's</span>
+                  <br className="hidden sm:block" />
+                  <span className="bg-gradient-to-r from-blue-200 via-cyan-200 to-teal-200 bg-clip-text text-transparent drop-shadow-2xl font-medium">
+                    Trusted Source
                   </span>
-                  <br />
-                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 leading-tight">
-                    Seafood
-                  </span>
-                </motion.h1>
-                
-              
-                 
-                  
-            
+                  <br className="hidden md:block" />
+                  <span className="text-white drop-shadow-2xl font-normal">for Premium Shrimp</span>
+                </h1>
               </div>
-
-              
-
-              {/* Enhanced CTA Button */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-              >
-               
-
-                
-              </motion.div>
             </motion.div>
           </div>
 
@@ -345,17 +338,18 @@ const Seafood = () => {
                   className={`p-8 rounded-3xl ${promise.bg} border border-gray-200/50 shadow-xl relative overflow-hidden group cursor-pointer`}
                 >
                   {/* Background Image */}
-                  <div className="absolute inset-0 opacity-10">
+                  <div className="absolute inset-0 opacity-20">
                     <img 
-                      src={WEB_IMAGES.quality} 
+                      src={promise.image} 
                       alt={promise.title}
                       className="w-full h-full object-cover"
                     />
+                    <div className="absolute inset-0 bg-white/40" />
                   </div>
 
                   {/* Gradient Overlay */}
                   <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${promise.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-gradient-to-br ${promise.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                   />
 
                   {/* Stats Badge */}
@@ -517,7 +511,7 @@ const Seafood = () => {
                   className="relative rounded-3xl overflow-hidden shadow-2xl"
                 >
                   <img 
-                    src={WEB_IMAGES.quality}
+                    src={IMAGES.podplate}
                     alt="Quality assurance and food safety standards"
                     className="w-full h-96 object-cover"
                   />
@@ -534,8 +528,7 @@ const Seafood = () => {
                       {[
                         { number: "100%", label: "Antibiotic Free" },
                         { number: "24h", label: "Test Results" },
-                        { number: "0", label: "Rejections" },
-                        { number: "ISO", label: "Certified" }
+                    
                       ].map((stat, index) => (
                         <motion.div
                           key={index}
@@ -601,7 +594,7 @@ const Seafood = () => {
             >
               {[
                 {
-                  image: WEB_IMAGES.shrimp,
+                  image: IMAGES.shrmp,
                   title: "Premium Shrimp",
                   species: "Litopenaeus vannamei",
                   details: [
@@ -615,7 +608,7 @@ const Seafood = () => {
                   bg: "bg-blue-50"
                 },
                 {
-                  image: WEB_IMAGES.seabass,
+                  image: IMAGES.seabase,
                   title: "Premium Seabass", 
                   species: "Lates Calcarifer",
                   details: [
@@ -674,27 +667,7 @@ const Seafood = () => {
                     </div>
 
                     {/* CTA Button */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.6 }}
-                      className="mt-6"
-                    >
-                      <Link to="/samples">
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="relative group"
-                        >
-                          <Button 
-                            className={`w-full bg-gradient-to-r ${product.gradient} text-white border-0 hover:shadow-lg transition-all duration-300`}
-                          >
-                            Request Samples
-                          </Button>
-                        </motion.div>
-                      </Link>
-                    </motion.div>
+                   
                   </div>
 
                   {/* Animated Border */}
