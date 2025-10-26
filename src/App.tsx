@@ -8,15 +8,14 @@ import { useState, useEffect } from "react";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Seafood from "./pages/Seafood";
-import WomenEmpowerment from "./pages/WomenEmpowerment";
-import Partners from "./pages/Partners";
-import Join from "./pages/Join";
+import Tech from "./pages/Tech";
+import About from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import TopLoadingBar from "@/components/TopLoadingBar";
 import ShrimpLoader from "@/components/ShrimpLoader";
+import Seafood from "./pages/Seafood";
 
 const queryClient = new QueryClient();
 
@@ -26,10 +25,9 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/seafood" element={<Seafood />} />
-        <Route path="/women-empowerment" element={<WomenEmpowerment />} />
-        <Route path="/partners" element={<Partners />} />
-        <Route path="/join" element={<Join />} />
+        <Route path="/about" element={< About/>} />
+        <Route path="/tech" element={<Tech />} />
+        <Route path="/products" element={<Seafood />} />
         <Route path="/contact" element={<Contact />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />

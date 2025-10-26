@@ -196,7 +196,7 @@ const Contact = () => {
               <div className="mb-8">
                 <motion.h1
                   variants={itemVariants}
-                  className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-white leading-tight"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 leading-tight"
                 >
                   <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
                     Connect
@@ -207,84 +207,13 @@ const Contact = () => {
                   </span>
                 </motion.h1>
                 
-                <motion.div
-                  variants={itemVariants}
-                  className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 mb-8"
-                >
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  >
-                    <MessageCircle className="h-6 w-6 text-yellow-300" />
-                  </motion.div>
-                  <span className="text-lg font-semibold text-white">
-                    Reach out and join our mission to transform the seafood industry
-                  </span>
-                </motion.div>
+               
               </div>
 
-              <motion.p
-                variants={itemVariants}
-                className="text-xl md:text-2xl max-w-4xl mx-auto text-white/90 mb-12 leading-relaxed font-light"
-              >
-                Whether you're a potential partner, farmer, buyer, or have general inquiries, 
-                we're here to help. Our team responds within 24 hours to all messages.
-              </motion.p>
+              
 
               {/* Enhanced CTA Button */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-              >
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.05,
-                    rotateY: 10,
-                  }} 
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                  className="relative group"
-                  onMouseMove={(e) => {
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    mouseX.set(x * 0.2);
-                    mouseY.set(y * 0.2);
-                  }}
-                  onMouseLeave={() => {
-                    mouseX.set(0);
-                    mouseY.set(0);
-                  }}
-                  style={{ x: springX, y: springY }}
-                >
-                  <motion.div
-                    variants={glowVariants}
-                    animate="animate"
-                    className="absolute inset-0 rounded-2xl"
-                  />
-                  <Button 
-                    size="lg" 
-                    className="bg-white text-blue-600 hover:bg-blue-50 font-bold text-lg px-12 py-6 rounded-2xl relative z-10 group"
-                    onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-2xl"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.8 }}
-                    />
-                    <span className="relative z-10 flex items-center gap-3">
-                      Send Message
-                      <motion.div
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        <ArrowRight className="h-5 w-5" />
-                      </motion.div>
-                    </span>
-                  </Button>
-                </motion.div>
-              </motion.div>
+             
             </motion.div>
           </div>
         </section>
@@ -403,45 +332,6 @@ const Contact = () => {
                           viewport={{ once: true }}
                           transition={{ duration: 1, delay: index * 0.2 }}
                         />
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Business Hours Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="p-6 rounded-3xl bg-white border border-gray-200/50 shadow-lg relative overflow-hidden group"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <motion.div
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                      className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center"
-                    >
-                      <Clock className="h-6 w-6 text-orange-600" />
-                    </motion.div>
-                    <h3 className="font-bold text-lg text-gray-900">Business Hours</h3>
-                  </div>
-                  <div className="space-y-3 text-gray-600">
-                    {[
-                      { day: "Monday - Friday", time: "9:00 AM - 6:00 PM" },
-                      { day: "Saturday", time: "10:00 AM - 4:00 PM" },
-                      { day: "Sunday", time: "Closed" },
-                    ].map((schedule, idx) => (
-                      <motion.div 
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: idx * 0.1 }}
-                        className="flex justify-between items-center p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200"
-                      >
-                        <span className="font-medium">{schedule.day}</span>
-                        <span className="text-gray-500">{schedule.time}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -707,107 +597,7 @@ const Contact = () => {
         </section>
 
         {/* Quick Actions Section */}
-        <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute top-0 right-0 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-200/10 rounded-full blur-3xl" />
-
-          <div className="container mx-auto px-4 relative z-10">
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent"
-            >
-              Quick Actions
-            </motion.h2>
-            <motion.div
-              className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-            >
-              {[
-                {
-                  icon: <Users className="h-12 w-12 text-blue-600" />,
-                  title: "Request Samples",
-                  description: "Get premium product samples delivered within 7 days with complete documentation",
-                  cta: "Request Now",
-                  gradient: "from-blue-500 to-cyan-500",
-                  bg: "bg-blue-50"
-                },
-                {
-                  icon: <MessageCircle className="h-12 w-12 text-green-600" />,
-                  title: "Download Specifications",
-                  description: "Access complete product specifications, quality assurance packs, and certifications",
-                  cta: "Download",
-                  gradient: "from-green-500 to-emerald-500",
-                  bg: "bg-green-50"
-                },
-                {
-                  icon: <MapPin className="h-12 w-12 text-purple-600" />,
-                  title: "Book Plant Tour",
-                  description: "Schedule a virtual or in-person tour of our facilities and operations",
-                  cta: "Schedule Tour",
-                  gradient: "from-purple-500 to-pink-500",
-                  bg: "bg-purple-50"
-                },
-              ].map((action, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.08,
-                    y: -10,
-                    transition: { duration: 0.4, type: "spring" }
-                  }}
-                  className={`p-8 rounded-3xl ${action.bg} border border-gray-200/50 shadow-xl relative overflow-hidden group cursor-pointer`}
-                >
-                  {/* Animated Background */}
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${action.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                  />
-
-                  {/* Icon Container */}
-                  <motion.div
-                    whileHover={{ 
-                      rotate: 360,
-                      scale: 1.3,
-                      transition: { duration: 0.8 }
-                    }}
-                    className="w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-6 relative z-10"
-                  >
-                    {action.icon}
-                  </motion.div>
-
-                  <h3 className="text-2xl font-bold text-center mb-4 text-gray-900 relative z-10">{action.title}</h3>
-                  <p className="text-gray-600 text-center mb-6 leading-relaxed relative z-10">{action.description}</p>
-                  
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative group"
-                  >
-                    <Button 
-                      className={`w-full bg-gradient-to-r ${action.gradient} text-white border-0 hover:shadow-lg transition-all duration-300`}
-                    >
-                      {action.cta}
-                    </Button>
-                  </motion.div>
-
-                  {/* Animated Border */}
-                  <motion.div
-                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${action.gradient}`}
-                    initial={{ width: "0%" }}
-                    whileInView={{ width: "100%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: index * 0.2 }}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
+       
       </div>
     </PageTransition>
   );

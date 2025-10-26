@@ -232,109 +232,31 @@ const Seafood = () => {
                   variants={itemVariants}
                   className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-white leading-tight"
                 >
-                  <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
+                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 leading-tight">
                     Safe & Sustainable
                   </span>
                   <br />
-                  <span className="bg-gradient-to-r from-cyan-200 via-white to-purple-200 bg-clip-text text-transparent">
+                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 leading-tight">
                     Seafood
                   </span>
                 </motion.h1>
                 
-                <motion.div
-                  variants={itemVariants}
-                  className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 mb-8"
-                >
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  >
-                    <ShieldCheck className="h-6 w-6 text-yellow-300" />
-                  </motion.div>
-                  <span className="text-lg font-semibold text-white">
-                    Verified Before Harvest | Protected in Cold Chain | Delivered to Spec
-                  </span>
-                </motion.div>
+              
+                 
+                  
+            
               </div>
 
-              <motion.p
-                variants={itemVariants}
-                className="text-xl md:text-2xl max-w-4xl mx-auto text-white/90 mb-12 leading-relaxed font-light"
-              >
-                Safer, traceable shrimp at lower risk—verified before harvest, protected in cold chain, 
-                and delivered to your specifications with complete transparency and quality assurance.
-              </motion.p>
+              
 
               {/* Enhanced CTA Button */}
               <motion.div
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-6 justify-center items-center"
               >
-                <Link to="/samples">
-                  <motion.div
-                    whileHover={{ 
-                      scale: 1.05,
-                      rotateY: 10,
-                    }} 
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    className="relative group"
-                    onMouseMove={(e) => {
-                      const rect = e.currentTarget.getBoundingClientRect();
-                      const x = e.clientX - rect.left - rect.width / 2;
-                      const y = e.clientY - rect.top - rect.height / 2;
-                      mouseX.set(x * 0.2);
-                      mouseY.set(y * 0.2);
-                    }}
-                    onMouseLeave={() => {
-                      mouseX.set(0);
-                      mouseY.set(0);
-                    }}
-                    style={{ x: springX, y: springY }}
-                  >
-                    <motion.div
-                      variants={glowVariants}
-                      animate="animate"
-                      className="absolute inset-0 rounded-2xl"
-                    />
-                    <Button 
-                      size="lg" 
-                      className="bg-white text-blue-600 hover:bg-blue-50 font-bold text-lg px-12 py-6 rounded-2xl relative z-10 group"
-                    >
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-2xl"
-                        initial={{ x: "-100%" }}
-                        whileHover={{ x: "100%" }}
-                        transition={{ duration: 0.8 }}
-                      />
-                      <span className="relative z-10 flex items-center gap-3">
-                        Request Samples
-                        <motion.div
-                          animate={{ x: [0, 5, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        >
-                          <ArrowRight className="h-5 w-5" />
-                        </motion.div>
-                      </span>
-                    </Button>
-                  </motion.div>
-                </Link>
+               
 
-                <Link to="/quality">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative group"
-                  >
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="bg-transparent text-white border-2 border-white/40 hover:bg-white/10 hover:border-white/60 font-semibold text-lg px-10 py-6 rounded-2xl backdrop-blur-lg"
-                    >
-                      View Quality Standards
-                    </Button>
-                  </motion.div>
-                </Link>
+                
               </motion.div>
             </motion.div>
           </div>
@@ -790,189 +712,7 @@ const Seafood = () => {
         </section>
 
         {/* Enhanced CTA Section */}
-        <section 
-          ref={el => sectionRefs.current[4] = el}
-          className="py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 text-white relative overflow-hidden"
-        >
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img 
-              src={WEB_IMAGES.technology}
-              alt="Seafood technology and innovation"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 via-purple-600/70 to-cyan-600/80" />
-          </div>
-
-          {/* Animated Background */}
-          <motion.div
-            className="absolute inset-0"
-            animate={{
-              backgroundPosition: ["0% 0%", "100% 100%"],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.1) 0%, transparent 50%)
-              `,
-              backgroundSize: "50% 50%",
-            }}
-          />
-
-          <div className="container mx-auto px-4 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto"
-            >
-              <motion.h2
-                className="text-4xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
-                Ready to Experience Premium Quality?
-              </motion.h2>
-              
-              <motion.p
-                className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed max-w-2xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                24-hour response to RFQs | 7-day sample dispatch | Complete documentation and traceability
-              </motion.p>
-
-              {/* Action Cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="grid sm:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto"
-              >
-                {[
-                  { icon: FileText, label: "Download Specifications", desc: "Complete product specs" },
-                  { icon: QrCode, label: "Request Samples", desc: "7-day dispatch" },
-                  { icon: Users, label: "Book Plant Tour", desc: "Virtual or in-person" }
-                ].map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ 
-                      scale: 1.05,
-                      y: -5,
-                      transition: { duration: 0.3 }
-                    }}
-                    className="relative group"
-                  >
-                    <div className="p-6 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                      <motion.div
-                        whileHover={{ 
-                          rotate: 360,
-                          scale: 1.2,
-                          transition: { duration: 0.6 }
-                        }}
-                        className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4"
-                      >
-                        <item.icon className="h-6 w-6 text-white" />
-                      </motion.div>
-                      <h3 className="font-bold text-white mb-2">{item.label}</h3>
-                      <p className="text-white/70 text-sm">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-              >
-                <Link to="/contact">
-                  <motion.div
-                    whileHover={{ 
-                      scale: 1.05,
-                      rotateY: 5,
-                    }} 
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                    className="relative group"
-                  >
-                    <motion.div
-                      variants={glowVariants}
-                      animate="animate"
-                      className="absolute inset-0 rounded-2xl"
-                    />
-                    <Button
-                      size="lg"
-                      className="bg-white text-blue-600 hover:bg-blue-50 font-bold text-lg px-12 py-6 rounded-2xl relative z-10"
-                    >
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-2xl"
-                        initial={{ x: "-100%" }}
-                        whileHover={{ x: "100%" }}
-                        transition={{ duration: 0.8 }}
-                      />
-                      <span className="relative z-10">Request Samples / RFQ</span>
-                    </Button>
-                  </motion.div>
-                </Link>
-                
-                <Link to="/sales">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative group"
-                  >
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="bg-white/10 text-white border-2 border-white/40 hover:bg-white/20 hover:border-white/60 font-semibold text-lg px-10 py-6 rounded-2xl backdrop-blur-lg"
-                    >
-                      Contact Sales Team
-                    </Button>
-                  </motion.div>
-                </Link>
-              </motion.div>
-
-              {/* Quality Stats */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-2xl mx-auto"
-              >
-                {[
-                  { number: "100%", label: "Antibiotic Free" },
-                  { number: "24h", label: "Response Time" },
-                  { number: "7 Days", label: "Sample Dispatch" },
-                  { number: "0", label: "Rejection Rate" }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.1 }}
-                    className="text-center p-4 bg-white/10 backdrop-blur-lg rounded-xl border border-white/20"
-                  >
-                    <div className="text-2xl font-bold text-white">{stat.number}</div>
-                    <div className="text-white/80 text-sm">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
+       
       </div>
     </PageTransition>
   );

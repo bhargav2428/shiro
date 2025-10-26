@@ -15,11 +15,10 @@ const Navigation = () => {
 
   const links = [
     { name: "Home", path: "/" },
-    { name: "Safe & Sustainable", path: "/seafood" },
-    { name: "Women Empowerment", path: "/women-empowerment" },
-    { name: "Partners", path: "/partners" },
-    { name: "Join Us", path: "/join" },
-    { name: "Contact", path: "/contact" },
+    { name: "About Us", path: "/about" },
+    { name: "Our Tech", path: "/tech" },
+    { name: "Products", path: "/products" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -40,11 +39,10 @@ const Navigation = () => {
         : "bg-background/95 backdrop-blur-sm shadow-sm"
     }`}>
       <div className="container-custom">
-        <div className={`flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? "h-14 md:h-16" : "h-16 md:h-20"
+        {/* Logo Section - Centered */}
+        <div className={`flex items-center justify-center transition-all duration-300 ${
+          isScrolled ? "py-1" : "py-2"
         }`}>
-          
-          {/* LOGO ONLY - NO BORDER REMOVED */}
           <Link to="/" className="group transition-all duration-300 flex items-center">
             <motion.img
               src={logoImage}
@@ -52,8 +50,8 @@ const Navigation = () => {
               className={`
                 object-contain transition-all duration-300 group-hover:scale-110
                 ${isScrolled 
-                  ? "w-20 h-20 md:w-40 md:h-40" 
-                  : "w-20 h-20 md:w-40 md:h-40"
+                  ? "w-20 h-16 md:w-28 md:h-20" 
+                  : "w-24 h-20 md:w-32 md:h-24"
                 }
               `}
               whileHover={{ scale: 1.1 }}
@@ -61,9 +59,14 @@ const Navigation = () => {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
           </Link>
+        </div>
 
+        {/* Navigation Section - Below Logo */}
+        <div className={`border-t border-border/50 transition-all duration-300 ${
+          isScrolled ? "py-1" : "py-2"
+        }`}>
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-4 ml-auto">
+          <div className="hidden lg:flex items-center justify-center space-x-8">
             {links.map((link) => (
               <Link
                 key={link.path}
@@ -83,14 +86,16 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden hover:bg-muted transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          <div className="lg:hidden flex justify-center">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-muted transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -115,7 +120,7 @@ const Navigation = () => {
               <Link
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-md text-base font-medium transition-all ${
+                className={`block px-4 py-3 rounded-md text-base font-medium transition-all text-center ${
                   isActive(link.path)
                     ? "bg-primary text-primary-foreground"
                     : "text-foreground hover:bg-muted"

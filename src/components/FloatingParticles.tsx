@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 
-const FloatingParticles = () => {
-  const particles = Array.from({ length: 24 });
+interface FloatingParticlesProps {
+  count?: number;
+}
+
+const FloatingParticles = ({ count = 24 }: FloatingParticlesProps) => {
+  const particles = Array.from({ length: count });
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
