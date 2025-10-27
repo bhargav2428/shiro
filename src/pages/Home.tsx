@@ -180,14 +180,6 @@ const Home = () => {
                   <span className="text-white drop-shadow-2xl font-normal">while empowering communities.</span>
                 </h1>
                 
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
-                  className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 text-white/90 leading-relaxed font-light max-w-4xl mx-auto"
-                >
-                  Safe, Traceable, 100% Antibiotic-Free Sustainable Shrimp
-                </motion.p>
 
                 {/* CTA Buttons - Removed */}
               </motion.div>

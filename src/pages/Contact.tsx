@@ -257,7 +257,7 @@ const Contact = () => {
                             info@shrimpact.com
                           </a>
                         ),
-                        description: "Send us an email anytime",
+                        description: "",
                         gradient: "from-blue-500 to-cyan-500",
                         bg: "bg-blue-50"
                       },
@@ -272,7 +272,7 @@ const Contact = () => {
                             +91 903 5843 520
                           </a>
                         ),
-                        description: "Mon-Fri from 9am to 6pm",
+                        description: "",
                         gradient: "from-green-500 to-emerald-500",
                         bg: "bg-green-50"
                       },
@@ -280,7 +280,7 @@ const Contact = () => {
                         icon: <MapPin className="h-8 w-8 text-purple-600" />,
                         title: "Our Location",
                         content: <p className="text-gray-600 text-lg">Kakinada, Andhra Pradesh, India</p>,
-                        description: "Headquarters & Operations",
+                        description: "",
                         gradient: "from-purple-500 to-pink-500",
                         bg: "bg-purple-50"
                       },

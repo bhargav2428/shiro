@@ -8,7 +8,7 @@ import FloatingParticles from "@/components/FloatingParticles";
 
 // Import images from assets
 import awqurim from "@/assets/Awuarium.jpg";
-import podplate from "@/assets/podplate.jpg";
+import podplate from "@/assets/prawnss.jpg";
 import coldchain from "@/assets/coldchain.jpg";
 import ropar from "@/assets/ropar.jpg";
 import  promise from "@/assets/promise.jpg";
@@ -627,19 +627,15 @@ const Seafood = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -8,
-                    transition: { duration: 0.4, type: "spring" }
-                  }}
+                 
                   className={`rounded-3xl ${product.bg} border border-gray-200/50 shadow-2xl relative overflow-hidden group cursor-pointer h-full flex flex-col`}
                 >
                   {/* Product Image with Title OVERLAY */}
-                  <div className="h-[400px] overflow-hidden relative flex-shrink-0">
+                  <div className="h-[550px] overflow-hidden relative flex-shrink-0">
                     <img 
                       src={product.image} 
                       alt={product.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover object-center transition-transform duration-700"
                     />
                     {/* Strong Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -649,7 +645,7 @@ const Seafood = () => {
                 bg-white/20 backdrop-blur-[4px]  w-25">
   <h3 className="text-4xl font-bold mb-2 italic 
                  drop-shadow-2xl bg-gradient-to-r text-blue-900 
-                 bg-clip-text text-transparent">
+                 bg-clip-text ">
     {product.title}
   </h3>
   <p className="font-semibold text-lg italic drop-shadow-lg text-blue-900">

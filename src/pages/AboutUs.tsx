@@ -241,7 +241,7 @@ const About = () => {
                     <div className="relative z-10">
                       <h3 className="text-2xl font-semibold text-gray-800 mb-6">Recognition & Collaborations</h3>
                       <p className="text-lg text-gray-600 leading-relaxed font-light mb-8">
-                        Shrimpact's cluster approach is recognized for driving sustainability and farmer participation.
+                        Shrimpact's cluster approach is recognized for farmer participation.
                       </p>
                     </div>
                   </div>

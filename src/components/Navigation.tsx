@@ -75,9 +75,9 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative px-4 py-2 rounded-md text-sm font-medium transition-all duration-300
+                className={`relative px-4 py-2 rounded-md text-xl font-medium transition-all duration-300
                   after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
-                  after:bg-primary after:transition-all after:duration-300 hover:after:w-full
+                   after:transition-all after:duration-300 hover:after:w-full
                   ${
                   isActive(link.path)
                     ? "bg-primary text-primary-foreground after:w-full"
