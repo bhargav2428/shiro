@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { 
   Users, Target, Heart, Shield, Leaf, TrendingUp, 
   Globe, Award, BookOpen, Lightbulb, Network, 
-  GraduationCap, Sparkles, ArrowRight
+  GraduationCap, Sparkles, ArrowRight, CheckCircle
 } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import FloatingParticles from "@/components/FloatingParticles";
@@ -228,11 +228,22 @@ const About = () => {
                   transition={{ delay: 0.2 }}
                   className="relative"
                 >
-                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 backdrop-blur-lg rounded-3xl p-8 border border-green-200 shadow-2xl shadow-green-500/10 h-full">
-                    <h3 className="text-2xl font-semibold text-gray-800 mb-6">Recognition & Collaborations</h3>
-                    <p className="text-lg text-gray-600 leading-relaxed font-light mb-8">
-                      Shrimpact's cluster approach is recognized for driving sustainability and farmer participation.
-                    </p>
+                  <div 
+                    className="bg-gradient-to-br from-green-50 to-emerald-50 backdrop-blur-lg rounded-3xl p-8 border border-green-200 shadow-2xl shadow-green-500/10 h-full relative overflow-hidden"
+                  >
+                    {/* Background Image with Overlay */}
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+                      style={{ backgroundImage: 'url("/path/to/your/collaboration-background.jpg")' }}
+                    ></div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <h3 className="text-2xl font-semibold text-gray-800 mb-6">Recognition & Collaborations</h3>
+                      <p className="text-lg text-gray-600 leading-relaxed font-light mb-8">
+                        Shrimpact's cluster approach is recognized for driving sustainability and farmer participation.
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               </div>
@@ -356,34 +367,40 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                 {[
                   {
+                    icon: Network,
+                    title: "Cluster Development",
+                    description: "Organizing small farmers for collective efficiency and shared resources",
+                    color: "orange"
+                  },
+                  {
                     icon: Target,
                     title: "Digital Traceability Systems",
-                    description: "Pond-to-plate transparency for consumers and buyers",
+                    description: "Pond-to-plate transparency for consumers and buyers with real-time tracking",
                     color: "blue"
+                  },
+                  {
+                    icon: Shield,
+                    title: "Food Safety",
+                    description: "Ensuring shrimp from clusters are completely antibiotic-free and safe for consumption",
+                    color: "green"
                   },
                   {
                     icon: TrendingUp,
                     title: "Nanobubble Aeration Projects",
-                    description: "Reducing energy use, improving oxygenation",
-                    color: "green"
+                    description: "Reducing energy use while significantly improving water oxygenation",
+                    color: "purple"
                   },
                   {
                     icon: Globe,
                     title: "IoT-based Farm Monitoring",
-                    description: "Real-time water quality and health alerts",
-                    color: "purple"
-                  },
-                  {
-                    icon: Network,
-                    title: "Cluster Development",
-                    description: "Organizing small farmers for collective efficiency",
-                    color: "orange"
+                    description: "Real-time water quality monitoring and automated health alerts",
+                    color: "cyan"
                   },
                   {
                     icon: GraduationCap,
                     title: "Training & Capacity Building",
-                    description: "Farmer skill enhancement on biosecurity and sustainability",
-                    color: "cyan"
+                    description: "Farmer skill enhancement on biosecurity, sustainability, and best practices",
+                    color: "indigo"
                   }
                 ].map((initiative, index) => (
                   <motion.div
@@ -398,7 +415,7 @@ const About = () => {
                       <initiative.icon className={`w-6 h-6 text-${initiative.color}-600`} />
                     </div>
                     <h3 className="text-lg font-semibold text-gray-800 mb-3">{initiative.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed font-light">{initiative.description}</p>
+                    <p className="text-base text-gray-600 leading-relaxed font-light">{initiative.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -412,18 +429,21 @@ const About = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {[
                     {
-                      icon: TrendingUp,
-                      title: "Lower Disease Incidence",
-                      color: "red"
+                      icon: CheckCircle,
+                      title: "Safe and Quality Shrimp",
+                      description: "Antibiotic-free, premium quality shrimp production",
+                      color: "green"
                     },
                     {
                       icon: Award,
-                      title: "Better Yields & Profitability",
-                      color: "green"
+                      title: "Verified Clusters for Seafood Watch Standards",
+                      description: "Internationally recognized sustainable aquaculture practices",
+                      color: "blue"
                     },
                     {
                       icon: Leaf,
                       title: "Reduced Environmental Footprint",
+                      description: "Lower carbon emissions and sustainable resource usage",
                       color: "emerald"
                     }
                   ].map((impact, index) => (
@@ -438,6 +458,7 @@ const About = () => {
                         <impact.icon className={`w-10 h-10 text-${impact.color}-600`} />
                       </div>
                       <h4 className="text-xl font-semibold text-gray-800 mb-3">{impact.title}</h4>
+                      <p className="text-gray-600 leading-relaxed font-light text-base">{impact.description}</p>
                     </motion.div>
                   ))}
                 </div>

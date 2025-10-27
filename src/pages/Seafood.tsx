@@ -191,7 +191,7 @@ const Seafood = () => {
             <img 
               src={IMAGES.shrmp}  
               alt="Premium quality seafood and shrimp"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 via-purple-600/70 to-cyan-600/80" />
           </div>
@@ -335,67 +335,70 @@ const Seafood = () => {
                   }}
                   onHoverStart={() => setHoveredCard(index)}
                   onHoverEnd={() => setHoveredCard(null)}
-                  className={`p-8 rounded-3xl ${promise.bg} border border-gray-200/50 shadow-xl relative overflow-hidden group cursor-pointer`}
+                  className={`p-8 rounded-3xl ${promise.bg} border border-gray-200/50 shadow-xl relative overflow-hidden group cursor-pointer min-h-[500px]`}
                 >
-                  {/* Background Image */}
-                  <div className="absolute inset-0 opacity-20">
+                  {/* Background Image - Fixed Size */}
+                  <div className="absolute inset-0">
                     <img 
                       src={promise.image} 
                       alt={promise.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-white/40" />
+                    <div className="absolute inset-0 bg-white/30" />
                   </div>
 
                   {/* Gradient Overlay */}
                   <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${promise.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-gradient-to-br ${promise.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
                   />
 
-                  {/* Stats Badge */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.3 }}
-                    className="absolute top-6 right-6 px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full text-xs font-semibold text-gray-700"
-                  >
-                    {promise.stats}
-                  </motion.div>
+                  {/* Content Container with Background */}
+                  <div className="relative z-10 bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/40">
+                    {/* Stats Badge */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.3 }}
+                      className="absolute -top-3 -right-3 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-semibold text-gray-700 shadow-lg"
+                    >
+                      {promise.stats}
+                    </motion.div>
 
-                  {/* Icon with Animation */}
-                  <motion.div
-                    whileHover={{ 
-                      rotate: 360,
-                      scale: 1.2,
-                      transition: { duration: 0.8 }
-                    }}
-                    className="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mb-6 relative z-10"
-                  >
-                    <promise.icon className="h-8 w-8 text-blue-600" />
-                  </motion.div>
+                    {/* Icon with Animation */}
+                    <motion.div
+                      whileHover={{ 
+                        rotate: 360,
+                        scale: 1.2,
+                        transition: { duration: 0.8 }
+                      }}
+                      className="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mb-6"
+                    >
+                      <promise.icon className="h-8 w-8 text-blue-600" />
+                    </motion.div>
 
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900 relative z-10">{promise.title}</h3>
-                  <p className="text-gray-600 mb-6 relative z-10">{promise.description}</p>
-                  
-                  <ul className="space-y-3 relative z-10">
-                    {promise.items.map((item, idx) => (
-                      <motion.li 
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: idx * 0.1 + index * 0.2 }}
-                        whileHover={{ x: 5, transition: { duration: 0.2 } }}
-                        className="flex items-start gap-3 text-gray-700"
-                      >
-                        <motion.div
-                          whileHover={{ scale: 1.3 }}
-                          className="w-2 h-2 bg-current rounded-full mt-2 flex-shrink-0"
-                        />
-                        <span className="text-sm leading-relaxed">{item}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900">{promise.title}</h3>
+                    <p className="text-gray-600 mb-6">{promise.description}</p>
+                    
+                    <ul className="space-y-3">
+                      {promise.items.map((item, idx) => (
+                        <motion.li 
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: idx * 0.1 + index * 0.2 }}
+                          whileHover={{ x: 5, transition: { duration: 0.2 } }}
+                          className="flex items-start gap-3 text-gray-700"
+                        >
+                          <motion.div
+                            whileHover={{ scale: 1.3 }}
+                            className="w-2 h-2 bg-current rounded-full mt-2 flex-shrink-0"
+                          />
+                          <span className="text-sm leading-relaxed">{item}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
 
                   {/* Animated Border */}
                   <motion.div
@@ -497,7 +500,7 @@ const Seafood = () => {
                 </div>
               </motion.div>
 
-              {/* Image Card */}
+              {/* Image Card - Fixed Size */}
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -508,12 +511,12 @@ const Seafood = () => {
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.4 }}
-                  className="relative rounded-3xl overflow-hidden shadow-2xl"
+                  className="relative rounded-3xl overflow-hidden shadow-2xl bg-white h-[500px]"
                 >
                   <img 
                     src={IMAGES.shrmp}
                     alt="Quality assurance and food safety standards"
-                    className="w-full h-96 object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   
@@ -528,7 +531,6 @@ const Seafood = () => {
                       {[
                         { number: "100%", label: "Antibiotic Free" },
                         { number: "24h", label: "Test Results" },
-                    
                       ].map((stat, index) => (
                         <motion.div
                           key={index}
@@ -556,7 +558,7 @@ const Seafood = () => {
           </div>
         </section>
 
-        {/* Products Section */}
+        {/* Products Section - Fixed Image Sizes */}
         <section 
           ref={el => sectionRefs.current[3] = el}
           className="py-24 relative overflow-hidden"
@@ -632,14 +634,14 @@ const Seafood = () => {
                   }}
                   className={`rounded-3xl ${product.bg} border border-gray-200/50 shadow-xl relative overflow-hidden group cursor-pointer`}
                 >
-                  {/* Product Image */}
-                  <div className="h-48 overflow-hidden">
+                  {/* Product Image - Fixed Size with Cover */}
+                  <div className="h-80 overflow-hidden">
                     <img 
                       src={product.image} 
                       alt={product.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   </div>
 
                   {/* Product Content */}
@@ -665,9 +667,6 @@ const Seafood = () => {
                         </motion.div>
                       ))}
                     </div>
-
-                    {/* CTA Button */}
-                   
                   </div>
 
                   {/* Animated Border */}
