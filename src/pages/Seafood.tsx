@@ -645,10 +645,18 @@ const Seafood = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                     
                     {/* Product Title Overlay - ON TOP OF IMAGE */}
-                    <div className="absolute top-0 left-0 right-0 p-8">
-                      <h3 className="text-4xl font-bold text-white mb-2 drop-shadow-2xl">{product.title}</h3>
-                      <p className="text-white/90 font-semibold text-lg italic drop-shadow-lg">{product.species}</p>
-                    </div>
+                    <div className="absolute top-0 left-0 right-0 p-4 
+                bg-white/20 backdrop-blur-[4px]  w-25">
+  <h3 className="text-4xl font-bold mb-2 italic 
+                 drop-shadow-2xl bg-gradient-to-r text-blue-900 
+                 bg-clip-text text-transparent">
+    {product.title}
+  </h3>
+  <p className="font-semibold text-lg italic drop-shadow-lg text-blue-900">
+    {product.species}
+  </p>
+</div>
+
 
                     {/* Floating Quality Badge */}
                     
