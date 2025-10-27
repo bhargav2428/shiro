@@ -9,6 +9,7 @@ import PageTransition from "@/components/PageTransition";
 import FloatingParticles from "@/components/FloatingParticles";
 import AnimatedCard from "@/components/AnimatedCard";
 import aboutImage from "@/assets/about1.jpg";
+import reco from "@/assets/reco.jpg";
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -151,9 +152,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Vision, Mission & Values Section */}
-       
-
         {/* Credentials Section */}
         <section className="relative py-20 md:py-32 overflow-hidden">
           <div className="container-custom px-4 sm:px-6">
@@ -229,20 +227,37 @@ const About = () => {
                   className="relative"
                 >
                   <div 
-                    className="bg-gradient-to-br from-green-50 to-emerald-50 backdrop-blur-lg rounded-3xl p-8 border border-green-200 shadow-2xl shadow-green-500/10 h-full relative overflow-hidden"
+                    className="bg-gradient-to-br from-green-50 to-emerald-50 backdrop-blur-lg rounded-3xl p-8 border border-green-200 shadow-2xl shadow-green-500/10 h-full relative overflow-hidden min-h-[400px]"
                   >
-                    {/* Background Image with Overlay */}
+                    {/* Background Image with Overlay - FIXED */}
                     <div 
-                      className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-                      style={{ backgroundImage: 'url("/path/to/your/collaboration-background.jpg")' }}
+                      className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+                      style={{ backgroundImage: `url(${reco})` }}
                     ></div>
                     
+                    {/* Enhanced overlay for better text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-50/80 to-emerald-50/80"></div>
+                    
                     {/* Content */}
-                    <div className="relative z-10">
+                    <div className="relative z-10 h-full flex flex-col justify-center">
                       <h3 className="text-2xl font-semibold text-gray-800 mb-6">Recognition & Collaborations</h3>
                       <p className="text-lg text-gray-600 leading-relaxed font-light mb-8">
                         Shrimpact's cluster approach is recognized for farmer participation.
                       </p>
+                      <div className="space-y-4 mt-4">
+                        <div className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700 font-light">Recognized by international sustainability standards</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700 font-light">Collaborations with leading research institutions</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700 font-light">Industry awards for sustainable aquaculture practices</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -320,7 +335,7 @@ const About = () => {
                   >
                     <AnimatedCard 
                       delay={index * 0.2}
-                      className="p-8 rounded-3xl bg-white/70 backdrop-blur-lg border border-white/40 shadow-xl hover:shadow-2xl shadow-blue-500/10 hover:shadow-blue-500/20 transition-all duration-500"
+                      className="p-8 rounded-3xl bg-white/70 backdrop-blur-lg border border-white/40 shadow-xl hover:shadow-2xl shadow-blue-500/10 hover:shadow-blue-500/20 transition-all duration-500 h-full"
                     >
                       <div className={`w-16 h-16 bg-${pillar.color}-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
                         <pillar.icon className={`w-8 h-8 text-${pillar.color}-600`} />
@@ -409,7 +424,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
-                    className="group bg-white/70 backdrop-blur-lg rounded-2xl p-6 border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="group bg-white/70 backdrop-blur-lg rounded-2xl p-6 border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 h-full"
                   >
                     <div className={`w-12 h-12 bg-${initiative.color}-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                       <initiative.icon className={`w-6 h-6 text-${initiative.color}-600`} />

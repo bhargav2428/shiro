@@ -77,7 +77,7 @@ const App = () => {
           <AnimatedBackground />
           <Navigation />
           <AnimatedRoutes />
-          {/* <Footer /> */}
+          <Footer />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
