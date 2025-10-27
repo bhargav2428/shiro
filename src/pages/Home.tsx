@@ -177,7 +177,7 @@ const Home = () => {
                     sustainable and traceable seafood while 
                   </span>
                   <br className="hidden md:block" />
-                  <span className="text-white drop-shadow-2xl font-normal">empowering communities.</span>
+                  <span className="text-white drop-shadow-2xl font-normal"> empowering communities.</span>
                 </h1>
                 
                 <motion.p
