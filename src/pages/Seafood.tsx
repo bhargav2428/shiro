@@ -558,7 +558,7 @@ const Seafood = () => {
           </div>
         </section>
 
-        {/* Products Section - Fixed Image Sizes */}
+        {/* Products Section - Titles ON TOP of Images */}
         <section 
           ref={el => sectionRefs.current[3] = el}
           className="py-24 relative overflow-hidden"
@@ -592,7 +592,7 @@ const Seafood = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+              className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto"
             >
               {[
                 {
@@ -628,28 +628,35 @@ const Seafood = () => {
                   key={index}
                   variants={itemVariants}
                   whileHover={{ 
-                    scale: 1.08,
-                    y: -10,
+                    scale: 1.05,
+                    y: -8,
                     transition: { duration: 0.4, type: "spring" }
                   }}
-                  className={`rounded-3xl ${product.bg} border border-gray-200/50 shadow-xl relative overflow-hidden group cursor-pointer`}
+                  className={`rounded-3xl ${product.bg} border border-gray-200/50 shadow-2xl relative overflow-hidden group cursor-pointer h-full flex flex-col`}
                 >
-                  {/* Product Image - Fixed Size with Cover */}
-                  <div className="h-80 overflow-hidden">
+                  {/* Product Image with Title OVERLAY */}
+                  <div className="h-[400px] overflow-hidden relative flex-shrink-0">
                     <img 
                       src={product.image} 
                       alt={product.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    {/* Strong Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    
+                    {/* Product Title Overlay - ON TOP OF IMAGE */}
+                    <div className="absolute top-0 left-0 right-0 p-8">
+                      <h3 className="text-4xl font-bold text-white mb-2 drop-shadow-2xl">{product.title}</h3>
+                      <p className="text-white/90 font-semibold text-lg italic drop-shadow-lg">{product.species}</p>
+                    </div>
+
+                    {/* Floating Quality Badge */}
+                    
                   </div>
 
-                  {/* Product Content */}
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold mb-2 text-gray-900">{product.title}</h3>
-                    <p className="text-gray-600 mb-4 font-semibold">{product.species}</p>
-                    
-                    <div className="space-y-2">
+                  {/* Product Content - BELOW THE IMAGE */}
+                  <div className="p-8 flex-grow">
+                    <div className="space-y-4">
                       {product.details.map((detail, idx) => (
                         <motion.div 
                           key={idx}
@@ -657,25 +664,38 @@ const Seafood = () => {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.5, delay: idx * 0.1 + index * 0.2 }}
-                          className="flex items-center gap-3 text-gray-600"
+                          className="flex items-center gap-4 text-gray-700"
                         >
                           <motion.div
                             whileHover={{ scale: 1.3 }}
-                            className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"
+                            className="w-3 h-3 bg-blue-500 rounded-full flex-shrink-0"
                           />
-                          <span className="text-sm">{detail}</span>
+                          <span className="text-lg font-medium">{detail}</span>
                         </motion.div>
                       ))}
                     </div>
+
+                    {/* CTA Button */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8 }}
+                      className="mt-8"
+                    >
+                      <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg">
+                        Get Quote
+                        <ArrowRight className="ml-3 h-5 w-5" />
+                      </Button>
+                    </motion.div>
                   </div>
 
                   {/* Animated Border */}
                   <motion.div
-                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${product.gradient}`}
+                    className={`absolute bottom-0 left-0 h-2 bg-gradient-to-r ${product.gradient}`}
                     initial={{ width: "0%" }}
                     whileInView={{ width: "100%" }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, delay: index * 0.2 }}
+                    transition={{ duration: 1.2, delay: index * 0.3 }}
                   />
                 </motion.div>
               ))}
@@ -684,7 +704,43 @@ const Seafood = () => {
         </section>
 
         {/* Enhanced CTA Section */}
-       
+        <section className="py-20 bg-gradient-to-br from-blue-600 to-cyan-600 relative overflow-hidden">
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Source Premium Seafood?
+              </h2>
+              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Connect with us to get access to India's finest shrimp and seabass with complete traceability and quality assurance.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-3 rounded-xl text-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  Contact Sales
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white/10 font-semibold px-8 py-3 rounded-xl text-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  View Certifications
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+          
+          {/* Background Elements */}
+          <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl" />
+        </section>
       </div>
     </PageTransition>
   );
