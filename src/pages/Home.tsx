@@ -174,7 +174,7 @@ const Home = () => {
                   <span className="text-white drop-shadow-2xl font-normal">Delivering safe,</span>
                   <br className="hidden sm:block" />
                   <span className="bg-gradient-to-r from-blue-200 via-cyan-200 to-teal-200 bg-clip-text text-transparent drop-shadow-2xl font-medium">
-                    sustainable, and traceable seafood while
+                    sustainable and traceable seafood while 
                   </span>
                   <br className="hidden md:block" />
                   <span className="text-white drop-shadow-2xl font-normal">empowering communities.</span>
