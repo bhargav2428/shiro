@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Import Logo Image
-import logoImage from "@/assets/logo.jpg"; // 40x40px PNG
+import logoImage from "@/assets/logo.png"; // 40x40px PNG
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ const Navigation = () => {
 
   const links = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
+    { name: "About", path: "/about" },
     { name: "Our Tech", path: "/tech" },
     { name: "Products", path: "/products" },
     { name: "Contact Us", path: "/contact" },

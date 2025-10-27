@@ -149,7 +149,7 @@ const Home = () => {
                     <Sparkles className="w-5 h-5" />
                   </motion.div>
                 </motion.div>
-                <span className="font-semibold text-white text-sm tracking-wider group-hover:tracking-widest transition-all duration-500">
+                <span className="font-bold text-white text-l tracking-wider group-hover:tracking-widest transition-all duration-500">
                   Impact not Profit
                 </span>
               </motion.div>
@@ -171,13 +171,13 @@ const Home = () => {
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
                 
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-4 leading-tight">
-                  <span className="text-white drop-shadow-2xl font-normal">Delivering safe,</span>
+                  <span className="text-white drop-shadow-2xl font-normal">Delivering</span>
                   <br className="hidden sm:block" />
                   <span className="bg-gradient-to-r from-blue-200 via-cyan-200 to-teal-200 bg-clip-text text-transparent drop-shadow-2xl font-medium">
-                    sustainable and traceable seafood while 
+                  safe, sustainable and traceable <br></br>seafood 
                   </span>
                   <br className="hidden md:block" />
-                  <span className="text-white drop-shadow-2xl font-normal"> empowering communities.</span>
+                  <span className="text-white drop-shadow-2xl font-normal">while empowering communities.</span>
                 </h1>
                 
                 <motion.p
