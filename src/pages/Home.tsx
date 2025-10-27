@@ -13,7 +13,7 @@ import FloatingParticles from "@/components/FloatingParticles";
 import futurefishLogo from "@/assets/future.jpg";
 import zfcLogo from "@/assets/ropar.jpg";
 import partlySunnyLogo from "@/assets/Awuarium.jpg";
-import aboutImage from "@/assets/about.jpg";
+import aboutImage from "@/assets/image.png";
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);

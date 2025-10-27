@@ -511,7 +511,7 @@ const Seafood = () => {
                   className="relative rounded-3xl overflow-hidden shadow-2xl"
                 >
                   <img 
-                    src={IMAGES.podplate}
+                    src={IMAGES.shrmp}
                     alt="Quality assurance and food safety standards"
                     className="w-full h-96 object-cover"
                   />
