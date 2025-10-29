@@ -17,6 +17,7 @@ import pondhealt from "@/assets/3.jpg";
 import seabase from "@/assets/4.jpg";
 
 import shrmp from "@/assets/2.jpg";
+import hero from "@/assets/5.jpg";
 
 const IMAGES = {
   awqurim: awqurim,
@@ -27,7 +28,8 @@ const IMAGES = {
   recognation: recognation,
   pondhealth: pondhealt,
   shrmp : shrmp,
-  seabase : seabase
+  seabase : seabase,
+  hero: hero
 };
 
 const Seafood = () => {
@@ -189,7 +191,7 @@ const Seafood = () => {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0">
             <img 
-              src={IMAGES.shrmp}  
+              src={IMAGES.hero}  
               alt="Premium quality seafood and shrimp"
               className="w-full h-full object-cover object-center"
             />
