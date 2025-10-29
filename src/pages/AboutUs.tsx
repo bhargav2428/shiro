@@ -446,12 +446,12 @@ const About = () => {
                     {
                       icon: CheckCircle,
                       title: "Safe and Quality Shrimp",
-                      description: "Antibiotic-free, premium quality shrimp production",
+                      description: "Antibiotic-free, premium quality shrimp",
                       color: "green"
                     },
                     {
                       icon: Award,
-                      title: "Verified Clusters for Seafood Watch Standards",
+                      title: "Verified Clusters for International Standards",
                       description: "Internationally recognized sustainable aquaculture practices",
                       color: "blue"
                     },
